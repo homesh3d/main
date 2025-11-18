@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="keywords" content="htmlcss bootstrap menu, navbar, hover nav menu CSS examples" />
+<meta name="description" content="Bootstrap 5 navbar hover examples for any type of project, Bootstrap 5" />  
+
+<title>About us</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<link rel="stylesheet" href="css/style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+<div class="container text-center">
+
+<div class="container text-center">
+<!-- 導覽列 -->
+<div id="content-container">
+<!-- 主選單內容載入 -->
+</div>
+
+<!-- ============= COMPONENT END// ============== -->
+
+<section class="section-content py-5">
+
+  <img src="./images/about.JPG"> 
+  
+</section>
+
+</div><!-- Ended container -->
+
+    <a href="#" id="backToTop">&#129137;</a>
+
+    <script>
+        // 獲取按鈕
+        let backToTop = document.getElementById("backToTop");
+
+        // 監聽滾動事件
+        window.onscroll = function() {
+            if (document.documentElement.scrollTop > 300) {
+                backToTop.style.display = "block"; // 顯示按鈕
+            } else {
+                backToTop.style.display = "none"; // 隱藏按鈕
+            }
+        };
+
+        // 點擊時平滑滾動到頂部
+        backToTop.addEventListener("click", function(event) {
+            event.preventDefault(); // 防止直接跳轉
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    </script>
+<footer align="center" >
+ 
+     <i class="fa fa-building fa-fw w3-margin-right w3-large w3-text-teal"></i><font size="2pt"><b>3003 W. Howard Lane Austin, TX 78728&nbsp;&nbsp;| 
+     <i class="fa fa-clock-o fa-fw w3-margin-right w3-large w3-text-teal"></i>9:00am-5:00m(CDT)&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+     <i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i><a href="mailto:sales@ensoftinc.com?subject=Interesting%20in%20HOMesh">sales@ensoftinc.com</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+     <i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>1(512)244-6464 ext 1&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+     <i class="fa fa-fax fa-fw w3-margin-right w3-large w3-text-teal"></i>1(512)244-6067</font></b>
+</footer>
+
+<!-- header.html)-->
+<script>
+  // 獲取外部檔案的內容
+  fetch('header.html')
+    .then(response => {
+      // 確保回應成功
+      if (!response.ok) {
+        throw new Error('無法載入檔案');
+      }
+      // 將回應解析為純文字
+      return response.text();
+    })
+    .then(htmlText => {
+      // 找到容器元素並將獲取的 HTML 文字設定為其內容
+      document.getElementById('content-container').innerHTML = htmlText;
+    })
+    .catch(error => {
+      console.error('載入內容時出錯:', error);
+      document.getElementById('content-container').innerHTML = '<p>載入內容失敗。</p>';
+    });
+</script>
+
+</body>
+</html>
