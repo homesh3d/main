@@ -1,38 +1,137 @@
-img {
-  max-width: 100%;
-  height: auto;
+/* --- style.css --- */
+
+/* 全局設定：機械製圖風格 (Mechanical Drafting Style) */
+body {
+    background-color: #ffffff;
+    color: #222; /* 字體加深，因為背景變複雜了 */
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+    /* 
+       這裡使用了多重背景技術：
+       1. 最上層：藍色網格 (方格紙效果)
+       2. 下層：機械齒輪與製圖線條的 SVG 水印 (無需外部圖片)
+    */
+    background-image: 
+        /* 層次 1: 垂直網格線 */
+        linear-gradient(rgba(0, 51, 153, 0.1) 1px, transparent 1px),
+        /* 層次 2: 水平網格線 */
+        linear-gradient(90deg, rgba(0, 51, 153, 0.1) 1px, transparent 1px),
+        /* 層次 3: 機械製圖圖樣 (SVG 編碼) */
+        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23003366' stroke-width='0.5' opacity='0.15'%3E%3C!-- 齒輪形狀 --%3E%3Cpath d='M50 25 L50 15 M50 85 L50 75 M15 50 L25 50 M85 50 L75 50 M28 28 L35 35 M72 72 L65 65 M28 72 L35 65 M72 28 L65 35' /%3E%3Ccircle cx='50' cy='50' r='20' /%3E%3Ccircle cx='50' cy='50' r='10' stroke-dasharray='2,2'/%3E%3C!-- 十字準星與輔助線 --%3E%3Cpath d='M0 0 L10 10 M100 100 L90 90 M0 100 L10 90 M100 0 L90 10' /%3E%3C/g%3E%3C/svg%3E");
+
+    /* 設定背景大小：網格 30px，機械圖樣 150px */
+    background-size: 30px 30px, 30px 30px, 150px 150px;
+    background-position: 0 0, 0 0, center center;
 }
-h4 {text-align:justify; margin: 2rem; width;95%}
-.dropdown-item {text-align: center; background: rgba(255,255,0,0.1);}
-.dropdown-menu {padding:0;}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #666; 
+    /* 圖片陰影加深，增加立體感 */
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.3);
+    background-color: #fff; /* 圖片若有透明處補白底 */
+}
+
+h4 {
+    text-align: justify; 
+    margin: 2rem; 
+    width: 95%; 
+    color: #003366; 
+    font-weight: 600;
+
+}
+
+h2 strong {
+    color: #002244; text-align: justify;
+    text-shadow: 1px 1px 0px rgba(255,255,255,0.8); /* 標題加白邊，防背景干擾 */
+}
+
+/* 下拉選單優化 */
+.dropdown-item {
+    text-align: center; 
+    background: transparent;
+    color: #333;
+}
+.dropdown-item:hover {
+    background-color: #e9ecef;
+    color: #003366;
+    font-weight: bold;
+}
+.dropdown-menu {
+    padding: 0;
+    border: 1px solid #999;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
 
 /* 連結按鈕樣式 */
-	#backToTop {
-		position: fixed;
-        bottom: 20px;
-        right: 20px;
-        display: none; /* 預設隱藏 */
-        font-size: 16px;
-        text-decoration: none;
-        background-color: #ababab;
-        color: white;
-        padding: 10px 15px;
-        border-radius: 5px;
-        transition: opacity 0.3s;
-    }
+#backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none; 
+    font-size: 16px;
+    text-decoration: none;
+    background-color: #003366;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 2px; /* 改成微方角，比較像工程軟體 */
+    transition: opacity 0.3s;
+    z-index: 1000;
+    opacity: 0.8;
+    border: 1px solid #fff;
+}
 
-        #backToTop:hover {
-            background-color: #777;
-			font-weight:bold;
-        }
+#backToTop:hover {
+    background-color: #0056b3;
+    opacity: 1;
+}
 		
 /* ============ desktop view ============ */
 @media all and (min-width: 992px) {
-	.navbar .nav-item .dropdown-menu{ display: none; }
-	.navbar .nav-item:hover .nav-link{   }
-	.navbar .nav-item:hover .dropdown-menu{ display: block; }
-	.navbar .nav-item .dropdown-menu{ margin-top:0;}
-	h4 {text-align:justify;}
-	.dropdown-item {text-align: left;}
+    .navbar .nav-item .dropdown-menu{ display: none; }
+    .navbar .nav-item:hover .dropdown-menu{ display: block; }
+    .navbar .nav-item .dropdown-menu{ margin-top:0;}
+    h3, h4 {text-align:justify;}
+	h2 { font-size:1.8rem; }
+    .dropdown-item {text-align: left;}
 }	
-/* ============ desktop view .end// ============ */
+
+/* Footer */
+footer {
+    margin-top: 50px;
+    padding: 20px 0;
+    background-color: rgba(248, 249, 250, 0.9); /* 微透明灰底 */
+    color: #444;
+    border-top: 3px solid #003366; /* 加粗頂部線條，更有工程圖紙感 */
+}
+
+footer a {
+    color: #0056b3;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: #003366;
+}
+
+/* 內容區塊：極致透明與毛玻璃 */
+.section-content {
+    /* 白色背景，透明度調整為 0.45 (非常透) */
+    background: rgba(255, 255, 255, 0.1); 
+    
+    /* 毛玻璃濾鏡：模糊背景，讓前景文字浮出來 */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(4px); /* 支援 Safari */
+    
+    padding: 1rem;
+    border-radius: 4px;
+    /* 加上雙層邊框，模擬圖紙的圖框 */
+    border: 2px solid rgba(0, 51, 102, 0.2); 
+    box-shadow: 
+        inset 0 0 0 1px rgba(255,255,255,0.5), /* 內光暈 */
+        0 5px 15px rgba(0,0,0,0.1); /* 外陰影 */
+
+}
