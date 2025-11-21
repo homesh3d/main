@@ -98,7 +98,7 @@ h2 strong {
 
 /* Hover 時的效果 */
 .contact-btn:hover {
-    background-color: #333; /* 背景變黃色 */
+    background-color: #555; /* 背景變灰 */
     color: #efefef !important;    /* 文字變黑色 */
     border-color: #ffc107;
     box-shadow: 0 0 10px rgba(255, 193, 250, 0.5); /* 發光效果 */
@@ -151,5 +151,6 @@ footer a:hover {
     box-shadow: 
         inset 0 0 0 1px rgba(255,255,255,0.5), /* 內光暈 */
         0 5px 15px rgba(0,0,0,0.1); /* 外陰影 */
+
 
 }
