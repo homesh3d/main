@@ -49,12 +49,12 @@ h2 strong {
 
 /* 下拉選單優化 */
 .dropdown-item {
-    text-align: center; 
+    text-align: center;  
     background: transparent;
     color: #333;
 }
 .dropdown-item:hover {
-    background-color: #e9ecef;
+    background-color: #232323;/*#e9ecef;*/
     color: #003366;
     font-weight: bold;
 }
@@ -86,7 +86,25 @@ h2 strong {
     background-color: #0056b3;
     opacity: 1;
 }
-		
+
+/* Contact Us 按鈕化樣式 */
+.contact-btn {
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 10px;
+    padding: 8px 15px !important; /* 增加內距讓它變大 */
+    margin-left: 10px;
+    transition: all 0.5s ease;
+}
+
+/* Hover 時的效果 */
+.contact-btn:hover {
+    background-color: #333; /* 背景變黃色 */
+    color: #efefef !important;    /* 文字變黑色 */
+    border-color: #ffc107;
+    box-shadow: 0 0 10px rgba(255, 193, 250, 0.5); /* 發光效果 */
+    font-weight: bold;
+}
+
 /* ============ desktop view ============ */
 @media all and (min-width: 992px) {
     .navbar .nav-item .dropdown-menu{ display: none; }
